@@ -4,6 +4,7 @@ from decimal import Decimal, getcontext, InvalidOperation
 # Set the precision to X significant digits (default is 28)
 getcontext().prec = 28
 
+# 単位 Constant Strings
 # 1尺(しゃく/Shaku) = 30.3022センチ(cm)
 JAPANESE_UNIT_SHAKU: Decimal = Decimal('30.3022')
 
@@ -13,15 +14,12 @@ JAPANESE_UNIT_SUN: Decimal = Decimal('3.03022')
 # 1分(ぶ/Bu) = 0.303022センチ(cm)
 JAPANESE_UNIT_BU: Decimal = Decimal('0.303022')
 
-# 単位 Constant Strings
 SENCHI: str = "Centimeter(センチ)"
 SHAKU: str = "Shaku(尺)"
 SUN: str = "Sun(寸)"
 BU: str = "Bu(分)"
 
 # 単位の自動換算 Converter Function センチ(cm) → 尺(Shaku)
-
-
 def nagasa_convert_to_shaku() -> None:
     """
     Prompts user for blade length in cm and converts it to traditional Japanese unit.
@@ -40,9 +38,8 @@ def nagasa_convert_to_shaku() -> None:
     except InvalidOperation:
         print("\n[Please enter a valid number/不正な数値]")
 
+
 # 単位の自動換算 Converter Function 尺(Shaku) → センチ(cm)
-
-
 def nagasa_convert_to_cm() -> None:
     """
     Prompts user for blade length in traditional Japanese unit and converts it to cm.
@@ -68,9 +65,8 @@ def nagasa_convert_to_cm() -> None:
     except InvalidOperation:
         print("\n[Please enter valid numbers/不正な数値]")
 
+
 # 換算を選ぶ Choose Converter Function
-
-
 def choose_converter() -> None:
     """
     Prompt user to choose between two conversion options or end the program.
